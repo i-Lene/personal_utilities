@@ -6,7 +6,7 @@ import WeatherResult from "./components/Weather/WeatherResult";
 function App() {
   const [data, setData] = useState(null);
   const [city, setCity] = useState("");
-  const API_KEY = "b6a3a386580da746398df2add8c3c39d";
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   const getWeather = async (e) => {
     e.preventDefault();
