@@ -1,0 +1,29 @@
+@use '../../utils/variables.scss' as vars;
+
+.heading {
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+.weather_form {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weather_form_buttons {
+  display: flex;
+  gap: 20px;
+
+  button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: vars.$layout-breakpoint-medium) {
+  .weather_form_buttons {
+    flex-direction: column;
+  }
+}

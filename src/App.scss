@@ -1,0 +1,65 @@
+@use "/src/utils/variables.scss" as vars;
+
+body {
+  background: vars.$degradation;
+  padding: vars.$padding_desktop;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: vars.$headings_color;
+}
+
+p,
+span,
+a {
+  color: vars.$text_color;
+}
+
+button {
+  background-color: vars.$amethyst;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  color: vars.$text_color;
+}
+
+input {
+  padding: 10px;
+  border: 2px solid vars.$thistle;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
+    border-color: vars.$amethyst;
+    box-shadow: 0 0 5px rgba(144, 107, 174, 0.5);
+  }
+}
+
+
+//hovers 
+@media only screen and (min-width: vars.$layout-breakpoint-large) {
+  button {
+    &:hover {
+      background-color: vars.$african_violet;
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+//mobile styles
+@media only screen and (max-width: vars.$layout-breakpoint-medium) {
+  body {
+    padding: vars.$padding_mobile;
+  }
+}
