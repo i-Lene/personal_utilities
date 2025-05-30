@@ -1,5 +1,9 @@
 @use "/src/utils/variables.scss" as vars;
 
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
 body {
   background: vars.$degradation;
   padding: vars.$padding_desktop;
@@ -28,6 +32,7 @@ button {
   text-transform: uppercase;
   transition: all 0.3s ease;
   color: vars.$text_color;
+  font-weight: 700;
 }
 
 input {
@@ -45,8 +50,7 @@ input {
   }
 }
 
-
-//hovers 
+//hovers
 @media only screen and (min-width: vars.$layout-breakpoint-large) {
   button {
     &:hover {
@@ -55,7 +59,6 @@ input {
     }
   }
 }
-
 
 //mobile styles
 @media only screen and (max-width: vars.$layout-breakpoint-medium) {

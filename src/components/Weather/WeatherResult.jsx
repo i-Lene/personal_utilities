@@ -1,30 +1,29 @@
 import classes from "./WeatherResult.module.scss";
 
 function WeatherResult({ data }) {
+  if (!data) return null;
+
+  const {
+    name,
+    main: { temp, humidity },
+    weather,
+    wind: { speed },
+  } = data;
+
+  const { icon, description } = weather[0];
+
   return (
-    data &&
     <div className={classes.weather_result}>
-      <img
-        src={
-          data?.weather
-            ? `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
-            : ""
-        }
-        alt={data?.name ?? ""}
-      />
+      <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt={name} />
       <div className={classes.weather_info}>
-        <h2 className={classes.weather_name}>{data?.name ?? ""}</h2>
-        <p className={classes.weather_temp}>
-          {data ? Math.round(data.main.temp) + "°C" : ""}
-        </p>
-        <p className={classes.weather_description}>
-          {data ? data.weather[0].description : ""}
-        </p>
+        <h2 className={classes.weather_name}>{name}</h2>
+        <p className={classes.weather_temp}>{Math.round(temp)}°C</p>
+        <p className={classes.weather_description}>{description}</p>
         <p className={classes.weather_humidity}>
-          {data ? "Humidity: " + data.main.humidity + "%" : ""}
+          <strong>Humidity:</strong> {humidity}%
         </p>
         <p className={classes.weather_wind}>
-          {data ? "Wind Speed: " + data.wind.speed + " m/s" : ""}
+          <strong>Wind Speed:</strong> {speed} m/s
         </p>
       </div>
     </div>
