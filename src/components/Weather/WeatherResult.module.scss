@@ -1,9 +1,16 @@
+@use "../../utils/variables.scss" as vars;
+
 .weather_result {
   text-align: center;
   margin-top: 40px;
 
   h2 {
     margin-top: 0;
+    font-size: 2rem;
+  }
+
+  img {
+    transition: all 0.3s ease-in-out;
   }
 }
 
@@ -14,5 +21,17 @@
 
   p {
     margin: 6px 0;
+  }
+}
+
+.weather_description {
+  text-transform: capitalize;
+}
+
+@media only screen and (min-width: vars.$layout-breakpoint-large) {
+  .weather_result {
+    img:hover {
+      transform: scale(1.03);
+    }
   }
 }

@@ -1,4 +1,4 @@
-@use '../../utils/variables.scss' as vars;
+@use "../../utils/variables.scss" as vars;
 
 .heading {
   text-align: center;
@@ -19,6 +19,14 @@
 
   button {
     width: 100%;
+  }
+}
+
+.weather_img {
+  text-align: center;
+  img {
+    width: 300px;
+    max-width: 100%;
   }
 }
 

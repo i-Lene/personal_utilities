@@ -5,8 +5,9 @@
 }
 
 body {
-  background: vars.$degradation;
-  padding: vars.$padding_desktop;
+  &.weather_page {
+    background: vars.$degradation;
+  }
   margin: 0;
 }
 
@@ -50,6 +51,18 @@ input {
   }
 }
 
+.error {
+  text-align: center;
+  margin: 20px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: vars.$error_color;
+}
+
+main {
+  padding: vars.$padding_desktop;
+}
+
 //hovers
 @media only screen and (min-width: vars.$layout-breakpoint-large) {
   button {
@@ -63,6 +76,9 @@ input {
 //mobile styles
 @media only screen and (max-width: vars.$layout-breakpoint-medium) {
   body {
+  }
+
+  main {
     padding: vars.$padding_mobile;
   }
 }

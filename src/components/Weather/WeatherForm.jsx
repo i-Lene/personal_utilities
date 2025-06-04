@@ -1,27 +1,42 @@
 import classes from "./WeatherForm.module.scss";
-
-function WeatherForm({ getWeather, setCity, city, setData }) {
+import weatherImg from "/images/weather_app.png";
+function WeatherForm({ getWeather, setCity, city, setData, setError }) {
   return (
     <>
-      <h1 className={classes.heading}>Be prepared for the weather</h1>
+      <div className={classes.weather_img}>
+        <img src={weatherImg} alt="Weather App" />
+      </div>
+      <h1 className={classes.heading}>Be prepared for the weather !</h1>
       <form className={classes.weather_form} onSubmit={getWeather}>
-        <field>
+        <div className={classes.field}>
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             placeholder="Enter city name"
           />
-        </field>
-        <field className={classes.weather_form_buttons}>
+        </div>
+        <div className={classes.weather_form_buttons}>
           <button type="submit">Get Weather</button>
-          <button type="button" onClick={() => setCity("")}>
+          <button
+            type="button"
+            onClick={() => {
+              setCity("");
+              setError(null);
+            }}
+          >
             Clear
           </button>
-          <button type="button" onClick={() => setData(null)}>
+          <button
+            type="button"
+            onClick={() => {
+              setData(null);
+              setError(null);
+            }}
+          >
             Reset
           </button>
-        </field>
+        </div>
       </form>
     </>
   );

@@ -1,7 +1,7 @@
 import classes from "./WeatherResult.module.scss";
 
 function WeatherResult({ data }) {
-  if (!data) return null;
+  if (!data) return ;
 
   const {
     name,
@@ -14,7 +14,7 @@ function WeatherResult({ data }) {
 
   return (
     <div className={classes.weather_result}>
-      <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} alt={name} />
+      <img src={`http://openweathermap.org/img/wn/${icon}@4x.png`} alt={name} />
       <div className={classes.weather_info}>
         <h2 className={classes.weather_name}>{name}</h2>
         <p className={classes.weather_temp}>{Math.round(temp)}°C</p>
