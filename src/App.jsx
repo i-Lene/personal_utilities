@@ -3,6 +3,7 @@ import "./App.scss";
 import Weather from "./components/Weather/Weather";
 import RootLayout from "./layout/RootLayout";
 import Home from "./components/Home/Home";
+import ToDoForm from "./components/ToDo/ToDoForm";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
         <Route path="/weather" element={<Weather />} />
+        <Route path="/todo" element={<ToDoForm />} />
         <Route path="*" element={<p>404</p>} />
       </Route>
     </Routes>

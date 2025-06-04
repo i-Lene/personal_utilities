@@ -7,6 +7,10 @@
 body {
   &.weather_page {
     background: vars.$degradation;
+
+    button {
+      background-color: vars.$amethyst;
+    }
   }
   margin: 0;
 }
@@ -24,7 +28,6 @@ a {
 }
 
 button {
-  background-color: vars.$amethyst;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -36,7 +39,7 @@ button {
   font-weight: 700;
 }
 
-input {
+input:not([type="checkbox"]) {
   padding: 10px;
   border: 2px solid vars.$thistle;
   border-radius: 8px;
@@ -63,12 +66,24 @@ main {
   padding: vars.$padding_desktop;
 }
 
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  position: absolute;
+}
+
 //hovers
 @media only screen and (min-width: vars.$layout-breakpoint-large) {
-  button {
-    &:hover {
-      background-color: vars.$african_violet;
-      transform: scale(1.05);
+  body {
+    &.weather_page {
+      button {
+        &:hover {
+          background-color: vars.$african_violet;
+          transform: scale(1.05);
+        }
+      }
     }
   }
 }
