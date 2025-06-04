@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ToDoList from "./ToDoList";
 import "./ToDo.scss";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { addClassToBody } from "../../utils/utils_funcs";
 
 export default function ToDoForm() {
   const [text, setText] = useState("");
@@ -9,6 +12,13 @@ export default function ToDoForm() {
     { id: 2, text: "Build a ToDo App", completed: true },
     { id: 3, text: "Deploy the App", completed: false },
   ]);
+
+  useEffect(() => {
+    const cleanup = addClassToBody("todo_page");
+    return () => {
+      cleanup && cleanup();
+    };
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,16 +45,26 @@ export default function ToDoForm() {
 
   return (
     <>
+      <h1>Hello ! Please enter your tasks here:</h1>
       <form onSubmit={handleSubmit} className="todo-form">
         <input
+          name="todo-input"
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Add a new task"
         />
-        <button type="submit">Add</button>
+        <button type="submit">
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
       </form>
-      <ToDoList todos={todos} onToggle={handleToggle} onDelete={handleDelete} />
+      {todos.length > 0 && (
+        <ToDoList
+          todos={todos}
+          onToggle={handleToggle}
+          onDelete={handleDelete}
+        />
+      )}
     </>
   );
 }
