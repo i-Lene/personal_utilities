@@ -1,0 +1,72 @@
+@use "../../utils/variables.scss" as vars;
+
+.home {
+  display: flex;
+  align-items: center;
+
+  .text-wrapper {
+    width: 40%;
+  }
+
+  h1 {
+    color: orangered;
+    font-size: 2.3 rem;
+  }
+
+  .img-wrapper {
+    width: 60%;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    a {
+      text-decoration: none;
+      padding: 20px;
+      border: 1px solid;
+      border-radius: 8px;
+      color: orangered;
+      background-color: rgb(222, 185, 230);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+}
+
+@media only screen and (max-width: vars.$layout-breakpoint-large) {
+  .home {
+    flex-direction: column-reverse;
+
+    h1 {
+      text-align: center;
+      margin-top: 0;
+    }
+    .text-wrapper {
+      width: 100%;
+    }
+
+    .img-wrapper {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: vars.$layout-breakpoint-large) {
+  .home {
+    .actions {
+      a {
+        &:hover {
+          background-color: orangered;
+          color: white;
+          transform: scale(1.05);
+        }
+      }
+    }
+  }
+}

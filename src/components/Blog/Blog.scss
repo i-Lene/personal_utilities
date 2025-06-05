@@ -41,7 +41,7 @@
 
 .blog-posts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin: 40px 0;
 
@@ -71,5 +71,11 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: vars.$layout-breakpoint-medium) {
+  .blog-posts {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
