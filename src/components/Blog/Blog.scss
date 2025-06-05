@@ -1,0 +1,75 @@
+@use "../../utils/variables.scss" as vars;
+
+.blog_page {
+  background-color: #0e3eec;
+
+  p,
+  span,
+  li,
+  a {
+    color: white;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #ffe883;
+  }
+
+  button {
+    background-color: #ffe883;
+    color: #0e3eec;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.blog-post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 40px auto 40px 0;
+  max-width: 900px;
+
+  button {
+    width: 100px;
+  }
+}
+
+.blog-posts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+
+  .blog-post-outer {
+    border-radius: 8px;
+    border: 1px solid #ffe883;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    background-color: white;
+  }
+  .blog-post {
+    border-radius: 8px;
+    border: 1px solid #ffe883;
+    padding: 20px;
+    margin: 0 0 20px 0;
+    background-color: #0e3eec;
+  }
+}
+
+@media only screen and (min-width: vars.$layout-breakpoint-large) {
+  body {
+    &.blog_page {
+      button {
+        &:hover {
+          color: #ffe883;
+          background-color: #465db3;
+        }
+      }
+    }
+  }
+}

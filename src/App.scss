@@ -11,6 +11,15 @@ body {
     button {
       background-color: vars.$amethyst;
     }
+
+    input:not([type="checkbox"]) {
+      border: 2px solid vars.$thistle;
+
+      &:focus {
+        border-color: vars.$amethyst;
+        box-shadow: 0 0 5px rgba(144, 107, 174, 0.5);
+      }
+    }
   }
   margin: 0;
 }
@@ -39,9 +48,11 @@ button {
   font-weight: 700;
 }
 
-input:not([type="checkbox"]) {
+textarea {
+  width: 100%;
+  min-height: 150px;
   padding: 10px;
-  border: 2px solid vars.$thistle;
+  border: 2px solid white;
   border-radius: 8px;
   width: 100%;
   box-sizing: border-box;
@@ -49,8 +60,19 @@ input:not([type="checkbox"]) {
 
   &:focus {
     outline: none;
-    border-color: vars.$amethyst;
-    box-shadow: 0 0 5px rgba(144, 107, 174, 0.5);
+  }
+}
+
+input:not([type="checkbox"]) {
+  padding: 10px;
+  border: 2px solid white;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+
+  &:focus {
+    outline: none;
   }
 }
 
@@ -64,6 +86,8 @@ input:not([type="checkbox"]) {
 
 main {
   padding: vars.$padding_desktop;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .hidden {
@@ -81,8 +105,13 @@ main {
       button {
         &:hover {
           background-color: vars.$african_violet;
-          transform: scale(1.05);
         }
+      }
+    }
+
+    button {
+      &:hover {
+        transform: scale(1.05);
       }
     }
   }

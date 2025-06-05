@@ -5,13 +5,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { addClassToBody } from "../../utils/utils_funcs";
 
+const LOCAL_STORAGE_KEY = "my_todo_list";
+
 export default function ToDoForm() {
   const [text, setText] = useState("");
-  const [todos, setTodos] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a ToDo App", completed: true },
-    { id: 3, text: "Deploy the App", completed: false },
-  ]);
+  const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    const storedTodos = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
 
   useEffect(() => {
     const cleanup = addClassToBody("todo_page");
@@ -45,7 +54,7 @@ export default function ToDoForm() {
 
   return (
     <>
-      <h1>Hello ! Please enter your tasks here:</h1>
+      <h1>Hello! Please enter your tasks here:</h1>
       <form onSubmit={handleSubmit} className="todo-form">
         <input
           name="todo-input"
@@ -55,16 +64,12 @@ export default function ToDoForm() {
           placeholder="Add a new task"
         />
         <button type="submit">
-          <FontAwesomeIcon icon={faPlus} />
+          <span className="icon">
+            <FontAwesomeIcon icon={faPlus} />
+          </span>
         </button>
       </form>
-      {todos.length > 0 && (
-        <ToDoList
-          todos={todos}
-          onToggle={handleToggle}
-          onDelete={handleDelete}
-        />
-      )}
+      <ToDoList todos={todos} onToggle={handleToggle} onDelete={handleDelete} />
     </>
   );
 }

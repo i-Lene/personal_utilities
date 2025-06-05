@@ -15,13 +15,17 @@ export default function ToDoItem({ todo, onToggle, onDelete }) {
           onChange={() => onToggle(todo.id)}
         />
         <label htmlFor={`${todo.id}-checkbox`} className="checkbox-label">
-          <FontAwesomeIcon icon={todo.completed ? faCheckCircle : faCircle} />
+          <span className="icon">
+            <FontAwesomeIcon icon={todo.completed ? faCheckCircle : faCircle} />
+          </span>
           <span>{todo.text}</span>
         </label>
       </span>
 
       <button onClick={() => onDelete(todo.id)}>
-        <FontAwesomeIcon icon={faTrash} />
+        <span className="icon">
+          <FontAwesomeIcon icon={faTrash} />
+        </span>
       </button>
     </li>
   );
